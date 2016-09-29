@@ -1,6 +1,6 @@
-require 'rspec/core/rake_task'
-require 'rubygems/package_task'
-require 'mixlib/shellout/version'
+require "rspec/core/rake_task"
+require "rubygems/package_task"
+require "mixlib/shellout/version"
 
 Dir[File.expand_path("../*gemspec", __FILE__)].reverse.each do |gemspec_path|
   gemspec = eval(IO.read(gemspec_path))
@@ -11,9 +11,10 @@ require "chefstyle"
 require "rubocop/rake_task"
 desc "Run Ruby style checks"
 RuboCop::RakeTask.new(:style)
+
 desc "Run all specs in spec directory"
 RSpec::Core::RakeTask.new(:spec) do |t|
-  t.pattern = FileList['spec/**/*_spec.rb']
+  t.pattern = FileList["spec/**/*_spec.rb"]
 end
 
 desc "Build it and ship it"
